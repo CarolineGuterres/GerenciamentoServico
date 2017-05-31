@@ -148,17 +148,18 @@
                                 
                               echo "<div class='row'>";
                                 echo "<div class='col-sm-12 text-center'>";
-                                //echo "<form class='form-horizontal center' role='form' method='post' action='../controller/controlaServico.php'>";
+                                echo "<form class='form-horizontal center' role='form' method='post' action='../controller/controlaServico.php'>";
                                 echo "<input type='hidden' name='operacao' value='interesse'/>";
 
-                                 echo "<th><input type='hidden' name='idServico' value='$idServico'/></th>";
+                                 //<input type='hidden' name='idServico' value='$idServico'/>";
                                 ?>
 
                                  <input type="hidden" name="idUsuario" value="<?php echo $idUsuario?>" />
+
                                 
                                 <?php
-                                echo "<th><input type='submit' class='btn btn-success fa fa-check-square-o' onsubmit='btn.disabled=true'  id='button' onclick='desativa('button2')' value='Tenho Interesse'/></th>";
-                                //echo "</form>";
+                                echo "<th><input type='submit' class='btn btn-success fa fa-check-square-o' value='Tenho Interesse'/></th>";
+                                echo "</form>";
                               echo "</div>";
 
                             //  echo "<th></th>";

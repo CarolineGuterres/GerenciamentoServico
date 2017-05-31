@@ -9,24 +9,14 @@
 	    <link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css">
 	    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
 	    <link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
-	     <link rel="stylesheet" type="text/css" href="../css/menu.min.css">
-	     <link rel="stylesheet" type="text/css" href="../css/dropdown-menu.css">
+	    <link rel="stylesheet" type="text/css" href="../css/menu.min.css">
+	    <link rel="stylesheet" type="text/css" href="../css/dropdown-menu.css">
 	    <link rel="stylesheet" type="text/css" href="../css/imagehover.min.css">
 	    <link rel="stylesheet" type="text/css" href="../css/style.css">
-	    <link rel="stylesheet" type="text/css" href="../js/calendario.js">
 	    <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css" />
 		<script src="http://code.jquery.com/jquery-1.8.2.js"></script>
 		<script src="http://code.jquery.com/ui/1.9.0/jquery-ui.js"></script>
-		<link type="text/css" href="../css/jquery.css" rel="stylesheet" />
-		<script type="text/javascript" src="../js/jquery.js"></script>
-	   <script type="text/javascript" src="../js/jquery-ui.js"></script>
-	    <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css" />
-		<script src="http://code.jquery.com/jquery-1.8.2.js"></script>
-		<script src="http://code.jquery.com/ui/1.9.0/jquery-ui.js"></script>
-		<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-	  <link rel="stylesheet" href="/resources/demos/style.css">
-	  <link rel='stylesheet' href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css'/>
-	 
+
 
 	  </head>
 	  <body>
@@ -128,124 +118,114 @@
         </div>
       </div>
     </div>
-	      <div class="container text-center">
-	        <div class="row col-md-12 ">
-	         <div class="header-section ol-md-offset-2" style="text-align:center">
+	 
+ <form class="form-horizontal" role="form" method="post" action="../controller/controlaServico.php">
+<fieldset>
 
-		<form class="form-horizontal" role="form" method="post" action="../controller/controlaServico.php">
-						<input type="hidden" name="idUsuario" value="<?php echo $_SESSION['idUsuario']; ?>">
-						<input type="hidden" name="operacao" value="incluir"/>
-							<div class="form-group">
-								  <div class="col-sm-2">
-									<label for="nomeUsuario" class="control-label">Nome </label>
-								   </div>
-								<div class="col-sm-2">
-		                            <?php echo $nomeUsuario; ?>
-								</div>
-							</div>
-							<div class="form-group">
-								  <div class="col-sm-2">
-									<label for="endereco" name="endereco" class="control-label">Endereço:</label>
-								   </div>
-								<div class="col-sm-2">
-								<input type="hidden" name="endereco" value="<?php echo $_SESSION['endereco']; ?>">
-		                            <?php echo $endereco; ?>
-								</div>
-							</div>
-							<div class="form-group">
-								  <div class="col-sm-2">
-									<label for="categoria" class="control-label">Categoria:</label>
-								   </div>
-								<div class="col-sm-2">
-								 <select class="btn btn-default btn-xs dropdown-toggle" name="idCategoria">
-								  <option value = "NULL" name="idCategoria">Selecione categoria</option>
+            <input type="hidden" name="idUsuario" value="<?php echo $_SESSION['idUsuario']; ?>">
+            <input type="hidden" name="operacao" value="incluir"/>
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="nomeUsuario">Nome</label>  
+              <div class="col-md-4">
+               <?php echo $nomeUsuario; ?>
+                
+              </div>
+            </div>
 
-										<?php
-											include "../model/Categoria.class.php";
+            <!-- Text input-->
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="endereco">Enderco</label>  
+              <div class="col-md-4">
+              <input type="hidden" name="endereco" value="<?php echo $_SESSION['endereco']; ?>">
+                                <?php echo $endereco; ?>
+              </div>
+            </div>
 
-							                $obj = new Categoria;
+            <!-- Password input-->
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="password">Categoria</label>
+              <div class="col-md-4">
+               <select class="btn btn-default btn-xs dropdown-toggle" name="idCategoria">
+                  <option value = "NULL" name="idCategoria">Selecione categoria</option>
 
-											$resultado = $obj->mostrarCategorias();
+                    <?php
+                      include "../model/Categoria.class.php";
 
-											if($resultado){
-												while($linha=mysqli_fetch_assoc($resultado)){
-													$idCategoria=$linha['idCategoria'];
-													$nomeCategoria=$linha['nomeCategoria'];
-										?>
-											<option class="form-control" name="idCategoria" value="<?php echo $idCategoria; ?>"><?php echo $nomeCategoria; ?></option>
-										<?php }
-							                }
-						  ?>
+                              $obj = new Categoria;
+
+                      $resultado = $obj->mostrarCategorias();
+
+                      if($resultado){
+                        while($linha=mysqli_fetch_assoc($resultado)){
+                          $idCategoria=$linha['idCategoria'];
+                          $nomeCategoria=$linha['nomeCategoria'];
+                    ?>
+                      <option class="form-control" name="idCategoria" value="<?php echo $idCategoria; ?>"><?php echo $nomeCategoria; ?></option>
+                    <?php }
+                              }
+              ?>
 
 
-									</select>
-								</div>
-							</div>
+                  </select>
+                
+              </div>
+            </div>
 
-							<div class="form-group">
-								  <div class="col-sm-2">
-									<label for="descricao" class="control-label">Descriçao:</label>
-								   </div>
-								<div class="col-sm-6">
-								 <textarea class="form-control" name="descricao" rows="5" cols="5"></textarea>
-								</div>
-							</div>
-							<div class="form-group">
-								  <div class="col-sm-2">
-									<label for="valor" class="control-label">Valor:</label>
-								   </div>
+            <!-- Text input-->
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="descricao">Descrição</label>  
+              <div class="col-md-4">
+             <textarea class="form-control" name="descricao" rows="5" cols="5"></textarea>
+                
+              </div>
+            </div>
 
-								<div class="col-sm-2">
-								 <input type="number" step="0.01" class="form-control" id="valor" name="valor"  onkeyup="formataDouble(this)" placeholder="00.00">
-								</div>
-							</div>
-							<div class="form-group">
-								  <div class="col-sm-2">
-									<label for="calendario" class="control-label">Data:</label>
-								   </div>
-								<div class="col-sm-4">
-								
-								<input type="text" id="calendario" name="data" class="form-control"/>
+            <!-- Select Basic -->
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="valor">Valor</label>
+              <div class="col-md-4">
+                <input type="number" step="0.01" class="form-control" id="valor" name="valor"  onkeyup="formataDouble(this)" placeholder="00.00">
+                
+              </div>
+            </div>
 
-							   </div>
-							</div>
-							<div class="form-group">
-							  <div class="col-sm-offset-4 col-sm-3">
-								  <input type="submit" class="btn btn-success" value="Cadastrar"/>
-								   <input type="reset" class="btn btn-danger" value="Limpar"/>
-								</div>
-							</div>
-				</form>	
-				</center>
-				</div>	
-			        </div>
-			      </div>
-			      </div>
-			    </section>
-	    <!--/ work-shop-->
+            <!-- Text input-->
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="data">Data</label>  
+              <div class="col-md-4">
+            <input type="text" id="calendario" name="calendario" class="form-control" />
+              </div>
+            </div>
+
+            
+            <!-- Button -->
+            <div class="form-group">
+              
+               <div class="col-sm-offset-4 col-sm-3">
+                 <center> <input type="submit" class="btn btn-success" value="Cadastrar"/>
+                   <input type="reset" class="btn btn-danger" value="Limpar"/></center>
+                </div>
+            </div>
+
+            </fieldset>
+  </form>
+
+  <section id="work-shop" class="section-padding">
+    <div class="container ">
+      <div class="row">
+        
+      </div>
+    </div>
+  </section>  
 	   
 	    <!--Footer-->
-	    <footer id="footer" class="footer">
-	      <div class="container text-center">
-	    
+	    <footer id="footer" class="footer text-center">
+	      
 	        ©2017 Caroline Guterres
 	        
-	      </div>
 	    </footer>
-	    <!--/ Footer-->
-	    <script src="js/jquery.min.js"></script>
-      <script src="js/jquery.easing.min.js"></script>
-      <script src="js/bootstrap.min.js"></script>
-      <script src='http://code.jquery.com/jquery-2.1.3.min.js'></script>
-		<script src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js'></script>
-		<script>
-		  $(function () {
-		    $('.dropdown-toggle').dropdown();
-		  }); 
-		</script>
-      
-	    
-		<script>
+
+	    <script>
 				$(function() {
 				    $("#calendario").datepicker({
 				        dateFormat: 'yy/mm/dd',
@@ -257,6 +237,15 @@
 				    });
 				});
 		</script>	
+	    
+		<script>
+		  $(function () {
+		    $('.dropdown-toggle').dropdown();
+		  }); 
+		</script>
+      
+	    
+		
 		
 	    
 	  </body>

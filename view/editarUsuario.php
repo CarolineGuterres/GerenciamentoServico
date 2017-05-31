@@ -127,70 +127,70 @@
 
            ?>
 
-              <input type="hidden" name="idUsuario" value="<?php echo $idUsuario; ?>">
-        <div class="form-group">
-              <div class="col-sm-2">
-                <label for="nomeUsuario" class="control-label">Nome</label>
-               </div>
-            <div class="col-sm-10">
-             <input type="text" class="form-control" id="nomeUsuario" name="nomeUsuario" placeholder="Informe seu nome completo"  value="<?php echo $nomeUsuario; ?>">
+             
+        <form class="form-horizontal" role="form" method="post" action="../controller/controlaUsuario.php">
+      
+       <fieldset>
+ 
+            <input type="hidden" name="idUsuario" value="<?php echo $_SESSION['idUsuario']; ?>">
+          
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="nomeUsuario">Nome</label>  
+              <div class="col-md-4">
+              <input type="text" class="form-control" id="nomeUsuario" name="nomeUsuario" value="<?php echo $nomeUsuario; ?>">
+                
+              </div>
             </div>
-          </div>
-        <div class="form-group">
-              <div class="col-sm-2">
-                <label for="email" class="control-label">E-mail:</label>
-               </div>
-            <div class="col-sm-10">
-             <input type="email" class="form-control" id="email" name="email" placeholder=""  value="<?php echo $email; ?>">
+
+            <!-- Text input-->
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="endereco">E-mail</label>  
+              <div class="col-md-4">
+             <input type="email" class="form-control" id="email" name="email"  value="<?php echo $email; ?>">
+              </div>
             </div>
-          </div>
-        <div class="form-group">
-              <div class="col-sm-2">
-                <label for="telefone" class="control-label">Telefone:</label>
-               </div>
-            <div class="col-sm-10">
-             <input type="text" class="form-control telefone" id="telefone" name="telefone" placeholder="(99)99999-9999"  value="<?php echo $telefone; ?>">
+
+            <!-- Password input-->
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="telefone">Telefone</label>
+              <div class="col-md-4">
+                <input type="text" class="form-control telefone" id="campotelefone" name="telefone"  value="<?php echo $telefone; ?>">
+                
+              </div>
             </div>
-          </div>
-        <div class="form-group">
-              <div class="col-sm-2">
-                <label for="cidade" class="control-label">Cidade:</label>
-               </div>
-            <div class="col-sm-10">
-             <input type="text" class="form-control" id="cidade" name="cidade" placeholder=""  value="<?php echo $cidade; ?>">
+
+            <!-- Text input-->
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="cidade">Cidade</label>  
+              <div class="col-md-4">
+             <input type="text" class="form-control" id="cidade" name="cidade" value="<?php echo $cidade; ?>">
+                
+              </div>
             </div>
-          </div>
-        <div class="form-group">
-              <div class="col-sm-2">
-                <label for="endereco" class="control-label">Endereço:</label>
-               </div>
-            <div class="col-sm-10">
-             <input type="text" class="form-control" id="endereco" name="endereco" placeholder=""  value="<?php echo $endereco; ?>">
+
+            <!-- Select Basic -->
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="endereco">Endereço</label>
+              <div class="col-md-4">
+                  <input type="text" class="form-control"  name="endereco" value="<?php echo $endereco; ?>">
+              </div>
             </div>
-          </div>
-        <div class="form-group">
-           <div class="col-sm-offset-2 col-sm-10">
-             <center> 
-            <input type="submit" class="btn btn-success"  name="operacao" value="Editar"/>
-            <input type="submit" class="btn btn-danger" name="operacao" value="Excluir"/>
-          </center> 
+
+           
+            <!-- Button -->
+            <div class="form-group">
+              
+               <div class="col-sm-offset-4 col-sm-3">
+                 <center> <input type="submit" class="btn btn-success" name="operacao" value="Editar"/>
+                   <input type="reset" class="btn btn-danger" name="operacao" value="Excluir"/></center>
+                </div>
             </div>
-        </div>
-      </form>
-        </div>
-      </div>
-      </div>
-    </section>
+
+            </fieldset>
+  </form>
     <!--/ work-shop-->
    
-    <!--Footer-->
-    <footer id="footer" class="footer">
-      <div class="container text-center">
-    
-        ©2017 Caroline Guterres
-        
-      </div>
-    </footer>
+   
     <!--/ Footer-->
     
     <script src="js/jquery.min.js"></script>

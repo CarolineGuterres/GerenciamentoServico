@@ -144,8 +144,8 @@
                       // echo "<td>".$nomeUsuario."</td>";
                         //echo "<td>".$telefone."</td>";
                         
-                        echo "<td  class='text-center'><a class='btn btn-success fa fa-edit' href=contratarServico.php?idServico>Contratar</a>";
-                        echo "<a class='btn btn-info' href=avaliarServico.php?idServico>Avaliacao</a>";//ao clicar enviar mensagem por email
+                        echo "<td  class='text-center'><a class='btn btn-success fa fa-check' href=contratarServico.php?idServico>Contratar</a>";
+                        echo "<a class='btn btn-info fa fa-star' href=avaliarServico.php?idServico>Avaliação</a>";//ao clicar enviar mensagem por email
                         echo "</td></tr>";
                         }
                       }

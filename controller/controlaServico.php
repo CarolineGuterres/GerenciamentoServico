@@ -78,12 +78,13 @@
 						
 						echo "<meta http-equiv='refresh' 
 						content='0;url=../js/jquerymodalServico.php?numero=1'>";
-					}elseif($operacao=="interesse"){
+					}/*elseif($operacao=="interesse"){
 						//$idUsuarioCliente=$_POST["idUsuario"];
 						//echo $idUsuarioCliente;
+
 						$idServico=$_POST["idServico"];
-						//echo $idServico;
-						$obj = new Servico;
+						echo $idServico;
+						/*$obj = new Servico;
 						$obj->atualizarInteresse($idServico);
 						$_SESSION['mensagem']='Seu interesse foi cadastrado';
 						$_SESSION['local']='../view/areaCliente.php';
@@ -92,7 +93,7 @@
 					}elseif($operacao == "filtrar"){
 						$idCategoria = $_POST["idCategoria"];
 					
-						header("../view/inde2.php");
+						header("../view/inde2.php");*/
 						
                          
 				    }//fecha elseif			

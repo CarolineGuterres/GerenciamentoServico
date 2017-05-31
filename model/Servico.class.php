@@ -17,15 +17,15 @@
 				function inserir(){
 					$bd = new ConexaoBD();
 					$bd->conectar();
-					$sql = "INSERT INTO servico (idUsuario,endereco, idCategoria, descricao, valor, data,interesse)
-					VALUES ('$this->idUsuario', '$this->endereco','$this->idCategoria', '$this->descricao', '$this->valor','$this->data','0')";
+					$sql = "INSERT INTO servico (idUsuario,endereco, idCategoria, descricao, valor, data)
+					VALUES ('$this->idUsuario', '$this->endereco','$this->idCategoria', '$this->descricao', '$this->valor','$this->data')";
 					$bd->query($sql);
 					$bd->fechar();
 				}
 				function mostrarServicos(){
 					$bd = new ConexaoBD;
 					$bd->conectar();
-					return $bd->query("SELECT * FROM servico,categoria WHERE categoria.idCategoria = servico.idCategoria ORDER BY idServico " );
+					return $bd->query("SELECT * FROM servico,categoria WHERE categoria.idCategoria = servico.idCategoria ORDER BY idServico DESC " );
 					$bd->fechar();
 				}
 				//mostrar dados do usaurio para alterar
