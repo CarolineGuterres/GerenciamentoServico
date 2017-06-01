@@ -154,15 +154,16 @@
         }); 
       </script>
 
-       <script type="text/javascript">
+<script type="text/javascript">
+    /*jQuery(document).ready(function ($) {
 
-     function CarregarServicso (idCategoria){
+     function CarregarServicos (idCategoria){
       document.getElementById("categoria").style.visibility="visible";
       document.getElementById("categoria").style.opactiy="1";
       if(idCategoria){
         var myAjax = new Ajax.Updater(
           'buscar_servicos'
-              '../buscarServicos.php?idCategoria'=+idCategoria,
+              'php/buscarServicos.php?idCategoria'=+idCategoria,
               { method:'get',}
 
       )
@@ -176,7 +177,7 @@
       document.getElementById("categoria").style.visibility="visible";
       document.getElementById("categoria").style.opactiy="1";
       if(idServicos){
-        jQuery.get('php/index?idServicos='+idServicos+'&idCategoria'+getCategoria,
+        jQuery.get('php/buscarCategoria?idServicos='+idServicos+'&idCategoria'+getCategoria,
           function(data){
             jQuery(#listar_servicos).html( data );
             jQuery ("div.holder").jPages({
@@ -188,7 +189,7 @@
      }
      getCategoria = jQuery('opton:select', jQuery (#categoria)).text();
 
-    
+  });
      
  </script>
     
