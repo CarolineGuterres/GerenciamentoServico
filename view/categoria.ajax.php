@@ -15,7 +15,7 @@
 
         $categoria[] = array(
 
-        'categoria' => (utf8_encode($row['nomeCategoria'])),/
+        'categoria' => (utf8_encode($row['nomeCategoria'])),
 
         'nomeCategoria' => (utf8_encode($row['nomeCategoria'])),
 

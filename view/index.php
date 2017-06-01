@@ -12,7 +12,9 @@
      <link rel="stylesheet" type="text/css" href="../css/dropdown-menu.css">
     <link rel="stylesheet" type="text/css" href="../css/imagehover.min.css">
     <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <script type="text/javascript" src="jquery-1.3.2.min.js"></script>
      
+
    
   </head>
   <body>
@@ -53,9 +55,31 @@
            
         </div>
              <br>
-                    <select class="btn btn-default btn-xs dropdown-toggle" id="selecao">
+               <input type="hidden" id="GetCategoria" name="GetCategoria" value="idCategoria">
+                <center><select class="btn btn-default btn-xs dropdown-toggle" name="recebeValor" id="recebeValor" onchange="CarregarServicos(this.value, 0)">
+                  <option value = "NULL" name="idCategoria">Selecione categoria</option>
 
-              </select>
+                    <?php
+                      include_once "../model/Categoria.class.php";
+
+                              $obj = new Categoria;
+
+                      $resultado = $obj->mostrarCategorias();
+
+                      if($resultado){
+                        while($linha=mysqli_fetch_assoc($resultado)){
+                          $idCategoria=$linha['idCategoria'];
+                          $nomeCategoria=$linha['nomeCategoria'];
+                    ?>
+                      <option class="form-control" name="idCategoria" value="<?php echo $idCategoria; ?>"><?php echo $nomeCategoria; ?></option>
+                    <?php }
+                              }
+              ?>
+
+
+                  </select>
+                 
+            
 
                        
         </div>
@@ -130,44 +154,45 @@
         }); 
       </script>
 
+       <script type="text/javascript">
 
+     function CarregarServicso (idCategoria){
+      document.getElementById("categoria").style.visibility="visible";
+      document.getElementById("categoria").style.opactiy="1";
+      if(idCategoria){
+        var myAjax = new Ajax.Updater(
+          'buscar_servicos'
+              '../buscarServicos.php?idCategoria'=+idCategoria,
+              { method:'get',}
 
-     <script type="text/javascript">
-        $(document).ready(function(){
-          $.ajax({
-              url: "pegadados.php?action=getCategorias",
-              type: "POST",
-              dataType: "json"
-          }).done(function(resposta) {
-            $("#selecao").empty();
-            $("#selecao").append(new Option("Selecione categoria",null));
-            console.log(resposta);
-           // var options = '<option value""><option>';
-            for(x=0; x<resposta.length; x++){
-            $("#selecao").append(new Option(resposta[x].nomeCategoria,resposta[x].idCategoria));
-             // options+= '<options value="'+resposta[x].idCategoria+'">'+resposta[x].nomeCategoria+'</option>';
-            }
-          
-          $('#selecao').on("change", ".ajax", function(){
-                  
-                $.getJSON('pegadados.php', {action:'getServicos', cat_id:$("#selecao option:selected").val()}, function(servicos){
-                 
-                    console.log(servicos);
-                 
-                })
-  
-            })
-         
-                  
-          }).fail(function(jqXHR, textStatus ) {
-              console.log("Request failed: " + textStatus);
-              //se nao funcionou
+      )
+        getCategoria = jQuery ('option:select', jQuery(#categoria)).text();
+        ga('send','event','Servicos_Categorias', 'action', getNomeCategoria);
+        console.log(getNomeCategoria);
+      }
+     }
 
-          }).always(function() {
-             //carregando dados
-          });
-        })
-      </script>
+     function CarregarCategoriasServicos(idServicos, getCategoria){
+      document.getElementById("categoria").style.visibility="visible";
+      document.getElementById("categoria").style.opactiy="1";
+      if(idServicos){
+        jQuery.get('php/index?idServicos='+idServicos+'&idCategoria'+getCategoria,
+          function(data){
+            jQuery(#listar_servicos).html( data );
+            jQuery ("div.holder").jPages({
+              containerID "listar_servicos"
+            });
+
+          })
+      }
+     }
+     getCategoria = jQuery('opton:select', jQuery (#categoria)).text();
+
+    
+     
+ </script>
+    
+
     
     
   </body>
