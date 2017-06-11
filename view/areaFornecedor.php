@@ -119,9 +119,17 @@
                   </a>
               </div>
 
-              <div class="col-md-5 text-success justified"> 
+              <div class="col-md-3 text-success justified"> 
+
+                <a href="../view/notificacao.php" class="btn btn-sucess" type="button">
+                    <i class="text-success fa fa-handshake-o fa-5x text-center"></i>
+                    <h4><strong>Contratos</strong></h4>
+                  </a>
+              </div>
+
+              <div class="col-md-3 text-success justified"> 
                 <a href="../view/gerenciarServico.php" class="btn btn-sucess" type="button">
-                    <i class="text-success fa fa-cogs fa-5x text-center"></i>
+                    <i class="text-success fa fa-cogs fa-4x text-center"></i>
                     <h4><strong>Gerenciar Serviços</strong></h4>
                   </a>
               </div>

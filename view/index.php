@@ -55,8 +55,8 @@
            
         </div>
              <br>
-               <input type="hidden" id="GetCategoria" name="GetCategoria" value="idCategoria">
-                <center><select class="btn btn-default btn-xs dropdown-toggle" name="recebeValor" id="recebeValor" onchange="CarregarServicos(this.value, 0)">
+               
+               <center><select class="btn btn-default btn-xs dropdown-toggle" name="categoria" onchange="CarregarServicos(this.value)">
                   <option value = "NULL" name="idCategoria">Selecione categoria</option>
 
                     <?php
@@ -78,7 +78,7 @@
 
 
                   </select>
-                 
+                 </center>
             
 
                        
@@ -155,15 +155,15 @@
       </script>
 
 <script type="text/javascript">
-    /*jQuery(document).ready(function ($) {
+    jQuery(document).ready(function ($) {
 
      function CarregarServicos (idCategoria){
       document.getElementById("categoria").style.visibility="visible";
       document.getElementById("categoria").style.opactiy="1";
       if(idCategoria){
         var myAjax = new Ajax.Updater(
-          'buscar_servicos'
-              'php/buscarServicos.php?idCategoria'=+idCategoria,
+          'buscar_servico'
+              'php/buscarServico.php?idCategoria'=+idCategoria,
               { method:'get',}
 
       )
@@ -173,21 +173,7 @@
       }
      }
 
-     function CarregarCategoriasServicos(idServicos, getCategoria){
-      document.getElementById("categoria").style.visibility="visible";
-      document.getElementById("categoria").style.opactiy="1";
-      if(idServicos){
-        jQuery.get('php/buscarCategoria?idServicos='+idServicos+'&idCategoria'+getCategoria,
-          function(data){
-            jQuery(#listar_servicos).html( data );
-            jQuery ("div.holder").jPages({
-              containerID "listar_servicos"
-            });
-
-          })
-      }
-     }
-     getCategoria = jQuery('opton:select', jQuery (#categoria)).text();
+     
 
   });
      

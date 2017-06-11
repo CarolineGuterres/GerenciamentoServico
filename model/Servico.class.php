@@ -10,7 +10,6 @@
 				public $descricao;
 				public $valor;
 				public $data;
-				public $interesse;
 				
 				
 				//funcao para inserir
@@ -32,7 +31,7 @@
 				function mostrarServicoAlterar($idServico){
 					$bd = new ConexaoBD;
 					$bd->conectar();
-					return $bd->query("SELECT * FROM servico WHERE  idServico='$idServico'");
+					return $bd->query("SELECT nomeCategoria, descricao,valor FROM servico INNER JOIN categoria on servico.idCategoria=categoria.idCategoria WHERE  idServico='$idServico'");
 					$bd->fechar();
 				}
 				
@@ -62,7 +61,7 @@
 				function mostrarServicosNotificacao($idUsuario){
 					$bd = new ConexaoBD;
 					$bd->conectar();
-					return $bd->query("SELECT nomeCategoria, descricao,nomeUsuario, telefone FROM `categoria` INNER JOIN `servico` on categoria.idCategoria = servico.idCategoria INNER JOIN usuario on servico.idUsuario=usuario.idUsuario WHERE servico.idUsuario = '$idUsuario' " );
+					return $bd->query("SELECT nomeCategoria, descricao,nomeUsuario, telefone,interesse_serv.idServico FROM `interesse_serv` INNER JOIN servico ON interesse_serv.idServico=servico.idServico INNER JOIN usuario ON interesse_serv.idUsuario=usuario.idUsuario  INNER JOIN categoria on categoria.idCategoria=servico.idCategoria WHERE servico.idUsuario = '$idUsuario' " );
 					$bd->fechar();
 				}
 
@@ -79,6 +78,14 @@
 					$bd->query("UPDATE servico SET interesse='1' WHERE idServico='$idServico'");
 					$bd->fechar();
 					
+				}
+
+				//mostrar dados do usaurio para alterar
+				function mostrarServicoContratar($idServico){
+					$bd = new ConexaoBD;
+					$bd->conectar();
+					return $bd->query("SELECT nomeUsuario, usuario.idUsuario, categoria.nomeCategoria, servico.idCategoria FROM `interesse_serv` INNER JOIN servico ON servico.idServico=interesse_serv.idServico INNER JOIN usuario ON interesse_serv.idUsuario=usuario.idUsuario INNER JOIN categoria ON servico.idCategoria=categoria.idCategoria WHERE servico.idServico = '$idServico'");
+					$bd->fechar();
 				}
 
 				

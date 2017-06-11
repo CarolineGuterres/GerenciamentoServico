@@ -13,7 +13,7 @@
 				public $interesse;
 				
 
-            function buscarServicosCat($idCategoria){
+            function carregarServicos($idCategoria){
 				    $bd = new ConexaoBD;
 					$bd->conectar();
 					return $bd->query("SELECT nomeCategoria, descricao FROM `categoria` INNER JOIN `servico` ON categoria.idCategoria=servico.idCategoria WHERE servico.idCategoria = '$idCategoria' " );

@@ -17,6 +17,9 @@
 		<script src="http://code.jquery.com/jquery-1.8.2.js"></script>
 		<script src="http://code.jquery.com/ui/1.9.0/jquery-ui.js"></script>
 
+		<script type="text/javascript" src="js/jquery.js"></script>
+	    <script type="text/javascript" src="js/jquery-ui.js"></script>
+
 
 	  </head>
 	  <body>
@@ -125,7 +128,7 @@
             <input type="hidden" name="idUsuario" value="<?php echo $_SESSION['idUsuario']; ?>">
             <input type="hidden" name="operacao" value="incluir"/>
             <div class="form-group">
-              <label class="col-md-4 control-label" for="nomeUsuario">Nome</label>  
+              <label class="col-md-4 control-label" readonly="true" for="nomeUsuario">Nome</label>  
               <div class="col-md-4">
                <?php echo $nomeUsuario; ?>
                 
@@ -134,7 +137,7 @@
 
             <!-- Text input-->
             <div class="form-group">
-              <label class="col-md-4 control-label" for="endereco">Enderco</label>  
+              <label class="col-md-4 control-label" readonly="true" for="endereco">Enderco</label>  
               <div class="col-md-4">
               <input type="hidden" name="endereco" value="<?php echo $_SESSION['endereco']; ?>">
                                 <?php echo $endereco; ?>

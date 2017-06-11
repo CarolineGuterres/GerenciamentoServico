@@ -116,37 +116,36 @@
                 <table class="table">
                   <thead>
                   <tr>
-                    <th  class="text-center">Nome Usuário</th>
-                    <th  class="text-center">Telefone</th>
-                    <th class="text-center">Categoria</th>
-                    <th  class="text-center">Descrição</th>
+                    <th  class="text-center">Categoria</th>
+                    <th  class="text-center">Cliente</th>
+                    <th class="text-center">Telefone</th>
+                    <th  class="text-center">E-mail</th>
                     <th  class="text-center">Ação</th>
                   </tr>
                   </thead>
 
               <?php
-                  include "../model/Servico.class.php";
+                  include "../model/Contrato.class.php";
                    $idUsuario = $_SESSION['idUsuario'];
                     //echo $idUsuario;
-                    $obj = new Servico;
+                    $obj = new Contrato;
                     
-                    $resultado = $obj->mostrarServicosNotificacao($idUsuario);
+                    $resultado = $obj->mostrarServicosFinalizar($idUsuario);
                     
                     if($resultado){
                       while($linha=mysqli_fetch_assoc($resultado)){
+                        $nomeCategoria=$linha['nomeCategoria'];
                         $nomeUsuario=$linha['nomeUsuario'];
                         $telefone=$linha['telefone'];
-                        $nomeCategoria=$linha['nomeCategoria'];
-                        $descricao=$linha['descricao']; 
+                        $email=$linha['email']; 
                     
-                        echo "<tr><td class='text-center'>".$nomeUsuario."</td>";
+                        echo "<tr><td class='text-center'>".$nomeCategoria."</td>";
+                        echo "<td class='text-center'>".$nomeUsuario."</td>";
                         echo "<td class='text-center'>".$telefone."</td>";
-                        echo "<td class='text-center'>".$nomeCategoria."</td>";
-                        echo "<td class='text-center'>".$descricao."</td>";
+                        echo "<td class='text-center'>".$email."</td>";
                        
-                        
-                        echo "<td  class='text-center'><a class='btn btn-success fa fa-check' href=contratarServico.php?idServico=".$linha['idServico'].">Contratar</a>";
-                       
+
+                        echo "<td class='text-center'><a class='btn btn-danger fa fa-star' href=avaliarServico.php?idServico>Finalizar</a>";//ao clicar enviar mensagem por email
                         echo "</td></tr>";
                         }
                       }

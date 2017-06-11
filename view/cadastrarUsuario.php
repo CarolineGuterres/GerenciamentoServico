@@ -67,7 +67,7 @@
     </div>
 
 
- <form class="form-horizontal" role="form" method="post" action="../controller/controlaUsuario.php">
+ <form class="form-horizontal"  role="form" method="post" action="../controller/controlaUsuario.php">
       
 <fieldset>
 
@@ -85,7 +85,7 @@
             <div class="form-group">
               <label class="col-md-4 control-label" for="endereco">E-mail</label>  
               <div class="col-md-4">
-             <input type="email" class="form-control" id="email" name="email"  placeholder="examplo@gmail.com" nblur="validacaoEmail(f1.email)"  maxlength="60" size='40' required>
+             <input type="email" class="form-control" id="email" name="email"  placeholder="examplo@gmail.com" onBlur="validarEmail(this.value, 'validacao');" maxlength="60" size='40' required>
               </div>
             </div>
 
@@ -93,7 +93,7 @@
             <div class="form-group">
               <label class="col-md-4 control-label" for="telefone">Telefone</label>
               <div class="col-md-4">
-                <input type="text" class="form-control telefone" id="telefone" name="telefone" placeholder="(99)99999-9999">   
+                <input type="text" class="form-control telefone" id="telefone" name="telefone" placeholder="(99)99999-9999"  required>   
               </div>
             </div>
 
@@ -125,7 +125,8 @@
             <div class="form-group">
               <label class="col-md-4 control-label" for="senha">Senha:</label>  
               <div class="col-md-4">
-             <input type="password" class="form-control"  name="senha" placeholder="Informe uma senha" maxlength="10" required> <p>*Mínimo 6 Caracteres e Máximo 8 Caracteres</p>  
+             <input type="password" class="form-control"  name="senha" onBlur="ValidaSenha();" placeholder="Informe uma senha"  minlength="6" maxlength="8" 
+             required> <p>*Mínimo 6 Caracteres e Máximo 8 Caracteres</p>  
               </div>
             </div>
               <!-- Text input-->
@@ -142,7 +143,7 @@
             <div class="form-group">
               
                <div class="col-sm-offset-4 col-sm-3">
-                 <center> <input type="submit" class="btn btn-success" value="Cadastrar"/>
+                 <center> <input type="submit" class="btn btn-success"  value="Cadastrar"/>
                    <input type="reset" class="btn btn-danger" value="Limpar"/></center>
                 </div>
             </div>
@@ -174,7 +175,24 @@
       <script src="js/custom.js"></script>
       <script src='http://code.jquery.com/jquery-2.1.3.min.js'></script>
       <script src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js'></script>   
-   
+
+      <script type="text/javascript">
+          function validarEmail(email, validacao) {
+          
+            var ck_email = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+            var valid = document.getElementById(validacao);
+          
+            result = ck_email.test(email);
+                if (!result) {
+                  valid.innerHTML = "Endereço de e-mail inválido";
+                } else {
+                  valid.innerHTML = "Endereço de e-mail válido";
+                  }
+            return result;
+        }
+   </script>
+
+
     </body>
   </html>
 

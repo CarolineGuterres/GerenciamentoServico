@@ -119,6 +119,7 @@
                                $resultado = $obj->mostrarServicoAlterar($idServico);
                               if($resultado){
                                  while($linha=mysqli_fetch_assoc($resultado)){
+                                    $nomeCategoria = $linha['nomeCategoria'];
                                      $descricao = $linha['descricao'];
                                      $valor = $linha['valor'];
                                      
@@ -127,6 +128,13 @@
                       ?>
 
            <input type="hidden" name="idServico" value="<?php echo $idServico; ?>">
+           <!-- Text input-->
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="categoria">Categoria</label>  
+              <div class="col-md-4">
+            <input type="text" class="form-control" readonly="true" name="categoria" rows="5" cols="5" value="<?php echo $nomeCategoria; ?>">
+              </div>
+            </div>
            
             <!-- Text input-->
             <div class="form-group">

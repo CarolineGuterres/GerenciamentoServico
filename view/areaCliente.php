@@ -190,7 +190,7 @@
 
                                 //  echo "<th></th>";
                                   echo "<div class='col-sm-12 text-center'>";
-                                       echo"<th><a class='btn btn-danger fa fa-check-square-o' href=../view/avaliacaoServico.php>Avaliação</a></th>";
+                                       echo"<th><a class='btn btn-danger fa fa-check-square-o' href=../view/avaliarServico.php>Avaliação</a></th>";
 
                                 echo "</div></div>";
                                 echo "</thead>";
