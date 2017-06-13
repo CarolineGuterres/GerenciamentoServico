@@ -1,22 +1,23 @@
 <?php
 		 include_once'../model/ConexaoBD.class.php';
+		 echo "<pre>"; 
+		 //echo "POST".print_r($_POST);
+		 echo "GET".print_r($_GET);
+		$idCategoria=$_GET['idCategoria'];
 			
-			//Classe servico
-			class Servico{
-				public $idServico;
-				public $idUsuario;
-				public $endereco;
-				public $idCategoria;
-				public $descricao;
-				public $valor;
-				public $data;
-				public $interesse;
 				
 
-            function carregarServicos($idCategoria){
+           
+            	   echo "aqui".$idCategoria;
 				    $bd = new ConexaoBD;
 					$bd->conectar();
-					return $bd->query("SELECT nomeCategoria, descricao FROM `categoria` INNER JOIN `servico` ON categoria.idCategoria=servico.idCategoria WHERE servico.idCategoria = '$idCategoria' " );
+					//echo $bd;
+					echo "aqui 2".$bd;
+				//	return $bd->query("SELECT nomeCategoria, descricao FROM `categoria` INNER JOIN `servico` ON categoria.idCategoria=servico.idCategoria WHERE servico.idCategoria = '$idCategoria' " );
+				return $bd->query("SELECT * FROM categoria" );
 					$bd->fechar();
-			}
+
+		
 ?>
+
+

@@ -121,7 +121,7 @@
 
               <div class="col-md-3 text-success justified"> 
 
-                <a href="../view/notificacao.php" class="btn btn-sucess" type="button">
+                <a href="../view/finalizarServico.php" class="btn btn-sucess" type="button">
                     <i class="text-success fa fa-handshake-o fa-5x text-center"></i>
                     <h4><strong>Contratos</strong></h4>
                   </a>
@@ -147,13 +147,9 @@
       </section>
 
       <section id="work-shop" class="section-padding">
-    
       
       </section>
-  
-  
-     
-     
+ 
       <!--Footer-->
       <footer id="footer" class="footer">
         <div class="container text-center">
@@ -167,7 +163,6 @@
       <script src="js/jquery.min.js"></script>
       <script src="js/jquery.easing.min.js"></script>
       <script src="js/bootstrap.min.js"></script>
-      <script src="js/custom.js"></script>
       <script src='http://code.jquery.com/jquery-2.1.3.min.js'></script>
       <script src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js'></script>
            

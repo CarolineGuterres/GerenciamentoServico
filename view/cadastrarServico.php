@@ -13,12 +13,10 @@
 	    <link rel="stylesheet" type="text/css" href="../css/dropdown-menu.css">
 	    <link rel="stylesheet" type="text/css" href="../css/imagehover.min.css">
 	    <link rel="stylesheet" type="text/css" href="../css/style.css">
-	    <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css" />
+	   <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css" />
 		<script src="http://code.jquery.com/jquery-1.8.2.js"></script>
-		<script src="http://code.jquery.com/ui/1.9.0/jquery-ui.js"></script>
-
-		<script type="text/javascript" src="js/jquery.js"></script>
-	    <script type="text/javascript" src="js/jquery-ui.js"></script>
+		<script src="http://code.jquery.com/ui/1.9.0/jquery-ui.js"></script>  
+		<link rel="stylesheet" type="text/css" href="../js/mascara_calendario.jss">
 
 
 	  </head>
@@ -194,9 +192,9 @@
 
             <!-- Text input-->
             <div class="form-group">
-              <label class="col-md-4 control-label" for="data">Data</label>  
+              <label class="col-md-4 control-label" for="categoria" id="calendario">Data</label>  
               <div class="col-md-4">
-            <input type="text" id="calendario" name="data" class="form-control" />
+            <input type="date" id="calendario" name="data" class="form-control" OnKeyUp="mascaraData(this);" maxlength="10"  />
               </div>
             </div>
 
@@ -248,6 +246,8 @@
 			    $('.dropdown-toggle').dropdown();
 			  }); 	
 		</script>
+
+
       	
 	    
 	  </body>

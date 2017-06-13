@@ -7,12 +7,11 @@
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans|Candal|Alegreya+Sans">
     <link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
      <link rel="stylesheet" type="text/css" href="../css/menu.min.css">
-     <link rel="stylesheet" type="text/css" href="../css/dropdown-menu.css">
     <link rel="stylesheet" type="text/css" href="../css/imagehover.min.css">
     <link rel="stylesheet" type="text/css" href="../css/style.css">
-    <script type="text/javascript" src="jquery-1.3.2.min.js"></script>
+    
+    
      
 
    
@@ -56,7 +55,7 @@
         </div>
              <br>
                
-               <center><select class="btn btn-default btn-xs dropdown-toggle" name="categoria" onchange="CarregarServicos(this.value)">
+               <center><select class="btn btn-default btn-xs dropdown-toggle" name="categoria" onchange="carregarservicos(this.value)">
                   <option value = "NULL" name="idCategoria">Selecione categoria</option>
 
                     <?php
@@ -99,6 +98,7 @@
       <div class="container">
         <div class="row">
           <div class="header-section text-center">
+            <div id="servicosDisponiveis"></div>
 
             <?php
 
@@ -141,45 +141,27 @@
       </div>
     </footer>
     <!--/ Footer-->
-    
-    <script src="js/jquery.min.js"></script>
-    <script src="js/jquery.easing.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/custom.js"></script>
-    <script src='http://code.jquery.com/jquery-2.1.3.min.js'></script>
-    <script src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js'></script>
-      <script>
-        $(function () {
-          $('.dropdown-toggle').dropdown();
-        }); 
-      </script>
+   
+    <script src='../js/jquery-1.11.2.min.js'></script>
 
-<script type="text/javascript">
-    jQuery(document).ready(function ($) {
 
-     function CarregarServicos (idCategoria){
-      document.getElementById("categoria").style.visibility="visible";
-      document.getElementById("categoria").style.opactiy="1";
-      if(idCategoria){
-        var myAjax = new Ajax.Updater(
-          'buscar_servico'
-              'php/buscarServico.php?idCategoria'=+idCategoria,
-              { method:'get',}
+  <script type="text/javascript">
+    $(document).ready(function () {
+      console.log("ready");
+      
+      function carregarservicos(idCategoria){
+       if(idCategoria){
+      
+          $.get( "../controller/controlaCategoriaAjax.php?idCategoria="+idCategoria, 
+            function( data ) { $( "#servicosDisponiveis" ).html( data );}
+          );
+        
+        }
+      } 
 
-      )
-        getCategoria = jQuery ('option:select', jQuery(#categoria)).text();
-        ga('send','event','Servicos_Categorias', 'action', getNomeCategoria);
-        console.log(getNomeCategoria);
-      }
-     }
-
-     
-
-  });
-     
+    });
+  
  </script>
-    
-
     
     
   </body>

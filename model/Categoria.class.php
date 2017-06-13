@@ -26,6 +26,8 @@
 					return $bd->query("SELECT * FROM categoria ");
 					$bd->fechar();
 				}
+
+				
 		}
 				
 ?>
