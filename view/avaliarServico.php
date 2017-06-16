@@ -13,29 +13,11 @@
     <script type="text/javascript" src="../js/mascaras.js"></script>
     <script type="text/javascript" src="../js/jquery.maskedinput.js"></script>
     <link rel="stylesheet" type="text/css" href="../css/dropdown-menu.css">
-    
-   
   </head>
   <body>
-     <!--Navigation bar-->
-    <nav class="navbar navbar-default navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="index.html">Serviços<span></span></a>
-        </div>
-       <div class="navbar-collapse style= collapse in" id="bs-megadropdown-tabs" style="
-    padding-left: 0px;
-">
-<ul class="nav navbar-nav navbar-right">
-          
-           <li class="dropdown">
-                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                      <span class="fa fa-user"></span> 
+   <?php
+      include '../view/menuServico.html';
+  ?> 
                  <?php
 
                       session_start();
@@ -165,14 +147,10 @@
     </div>
 </section>  
         
-    <!--Footer-->
-    <footer id="footer" class="footer">
-      <div class="container text-center">
-    
-        ©2017 Caroline Guterres
-        
-      </div>
-    </footer>
+   <!--Footer-->
+    <?php
+      include '../view/footer.html';
+     ?> 
     <!--/ Footer-->
     
     <script src="../js/jquery.min.js"></script>

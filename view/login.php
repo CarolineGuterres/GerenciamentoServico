@@ -21,7 +21,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="index.html">Serviços<span></span></a>
+        <a class="navbar-brand" href="index.html">Solução<span></span></a>
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
         
@@ -105,19 +105,21 @@
                 </div>
             </section>
             </div>
-            </div>
-            
+          </div>
+
+          <!--/ work-shop-->
+       <section id="work-shop" class="section-padding">
+    
+      
+      </section>
+  
                               
     <!--/ work-shop-->
    
     <!--Footer-->
-    <footer id="footer" class="footer">
-      <div class="container text-center">
-    
-        ©2017 Caroline Guterres
-        
-      </div>
-    </footer>
+    <?php
+      include '../view/footer.html';
+     ?> 
     <!--/ Footer-->
     
     <script src="js/jquery.min.js"></script>

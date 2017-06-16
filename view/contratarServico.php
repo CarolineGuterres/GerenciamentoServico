@@ -14,32 +14,13 @@
     <link rel="stylesheet" type="text/css" href="../css/style.css">
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css" />
     <script src="http://code.jquery.com/jquery-1.8.2.js"></script>
-    <script src="http://code.jquery.com/ui/1.9.0/jquery-ui.js"></script>
-
-
-   
+    <script src="http://code.jquery.com/ui/1.9.0/jquery-ui.js"></script>   
   </head>
   <body>
                
-     <!--Navigation bar-->
-    <nav class="navbar navbar-default navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="index.html">Serviços<span></span></a>
-      </div>
-        <div class="navbar-collapse style= collapse in" id="bs-megadropdown-tabs" style="
-    padding-left: 0px;
-">
-<ul class="nav navbar-nav navbar-right">
-          
-           <li class="dropdown">
-                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                      <span class="fa fa-user"></span> 
+    <?php
+      include '../view/menuServico.html';
+    ?> 
                  <?php
 
                       session_start();
@@ -192,11 +173,10 @@
     </div>
   </section> 
     <!--Footer-->
-      <footer id="footer" class="footer text-center">
-        
-          ©2017 Caroline Guterres
-          
-      </footer>
+    <?php
+      include '../view/footer.html';
+     ?> 
+    <!--/ Footer-->
 
    
     <!--/ Footer-->

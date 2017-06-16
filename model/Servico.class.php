@@ -95,12 +95,20 @@
 						FROM `categoria` INNER JOIN `servico` ON categoria.idCategoria=servico.idCategoria 
 						WHERE servico.idCategoria = '$idCategoria' " );
 					$bd->fechar();
-
 			
 		        }
 
-				
-				
+		        function CarregarServicosCliente($idCategoria){
+				    $bd = new ConexaoBD;
+					$bd->conectar();
+					return $bd->query("SELECT nomeCategoria, descricao, endereco, valor, idServico FROM servico  INNER JOIN
+						categoria ON categoria.idCategoria=servico.idCategoria
+						WHERE servico.idCategoria = '$idCategoria' " );
+					$bd->fechar();
+			
+		        }
+
+
 			}	
 				
 

@@ -10,11 +10,8 @@
      <link rel="stylesheet" type="text/css" href="../css/menu.min.css">
     <link rel="stylesheet" type="text/css" href="../css/imagehover.min.css">
     <link rel="stylesheet" type="text/css" href="../css/style.css">
-    
-    
-     
-
-   
+    <link rel="stylesheet" type="text/css" href="../css/animate.css">
+  
   </head>
   <body>
              
@@ -27,7 +24,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="index.html">Serviços<br><span></span></a>
+        <a class="navbar-brand" href="index.html">Solução<br><span></span></a>
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav navbar-right">  
@@ -47,7 +44,16 @@
         
       </div>
     </nav>
-       <section id="work-shop" class="section-padding">
+<section id="work-shop" class="section-padding">
+<div class="container">
+        <div class="row">
+          <div class="col-md-12">
+                <h1>
+                  <center>Serviços Disponíveis</center>  
+                </h1>
+          </div>
+        </div>
+      </div>
     <div class="container">
       <div class="row">
         <div class="col-md-12">
@@ -78,27 +84,16 @@
 
                   </select>
                  </center>
-            
-
                        
         </div>
       </div>
     </div>
 
     <section id="work-shop" class="section-padding">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-              <h1>
-                <center>Serviços Disponíveis</center>  
-              </h1>
-        </div>
-      </div>
-    </div>
       <div class="container">
         <div class="row">
           <div class="header-section text-center">
-            <div id="servicosDisponiveis"></div>
+            <div id="servicosDisponiveis">
 
             <?php
 
@@ -127,42 +122,39 @@
               ?>
               
         </div>
+        </div>
       </div>
       </div>
     </section>
     <!--/ work-shop-->
    
     <!--Footer-->
-    <footer id="footer" class="footer">
-      <div class="container text-center">
-    
-        ©2017 Caroline Guterres
-        
-      </div>
-    </footer>
+    <?php
+      include '../view/footer.html';
+     ?> 
     <!--/ Footer-->
-   
     <script src='../js/jquery-1.11.2.min.js'></script>
 
-
-  <script type="text/javascript">
-    $(document).ready(function () {
-      console.log("ready");
-      
+    <script type="text/javascript">
+      function chamar(){
+        alert('aqui');
+      }
       function carregarservicos(idCategoria){
        if(idCategoria){
       
           $.get( "../controller/controlaCategoriaAjax.php?idCategoria="+idCategoria, 
-            function( data ) { $( "#servicosDisponiveis" ).html( data );}
+            function(data) { 
+              $( "#servicosDisponiveis" ).addClass('animated fadeOutLeft');
+          
+              setTimeout(function(){
+                $( "#servicosDisponiveis" ).html( data );
+                $( "#servicosDisponiveis" ).removeClass('animated fadeOutLeft').addClass('animated fadeInRight');
+              },500);
+            }
           );
         
         }
       } 
-
-    });
-  
- </script>
-    
-    
+    </script>    
   </body>
 </html>

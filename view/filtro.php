@@ -24,33 +24,7 @@
  </div>
              <br>
                
-               <select class="btn btn-default btn-xs dropdown-toggle" name="categoria" onchange="carregarservicos(this.value)">
-                  <option value = "NULL" name="idCategoria">Selecione categoria</option>
-
-                    <?php
-                      include_once "../model/Categoria.class.php";
-
-                              $obj = new Categoria;
-
-                      $resultado = $obj->mostrarCategorias();
-
-                      if($resultado){
-                        while($linha=mysqli_fetch_assoc($resultado)){
-                          $idCategoria=$linha['idCategoria'];
-                          $nomeCategoria=$linha['nomeCategoria'];
-                    ?>
-                      <option class="form-control" name="idCategoria" value="<?php echo $idCategoria; ?>"><?php echo $nomeCategoria; ?></option>
-                    <?php }
-                              }
-              ?>
-
-
-                  </select>
-                 
-            
-
-                       
-        </div>
+              
 <div id="servicosDisponiveis"></div>
 
 </body>

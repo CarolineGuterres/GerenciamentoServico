@@ -6,15 +6,16 @@
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
 <script type="text/javascript">
 $(function(){
-$("#interesse").click(function(){
-	$("#cancelar").removeAttr('disabled');
+$("#novo").click(function(){
+	$("#salvar").removeAttr('disabled');
 });	
 });
 </script>
 </head>
 
 <body>
-
+<input type="button" value="Novo" id="novo" />
+<input type="button" disabled="disabled" id="salvar" value="Salvar" />
    <section id="work-shop" class="section-padding">
       
         <div class="container">
@@ -64,9 +65,7 @@ $("#interesse").click(function(){
                                      echo "<th><input type='hidden' name='idServico' value='$idServico'</th>";
                                      echo "<input type='hidden' name='operacao' value='interesse'/>";
   
-                                //  echo "<th><input type='submit' class='btn btn-success fa fa-check-square-o' value='Tenho Interesse'/></th>";
-                                    echo"<input type='button' value='Tenho Interesse' id='interesse' />";
-									echo"<input type='button' disabled='disabled' id='cancelar' value='Cancelar' />";
+                                  echo "<th><input type='submit' class='btn btn-success fa fa-check-square-o' value='Tenho Interesse'/></th>";
                                     echo "</form>";
                                   echo "</div>";
 
@@ -115,6 +114,6 @@ $("#interesse").click(function(){
         <div class="container center">
          </div>
   </section>
-
+     
 </body>
 </html>

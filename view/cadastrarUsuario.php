@@ -32,7 +32,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.html">Serviços<br><span></span></a>
+          <a class="navbar-brand" href="index.html">Solução<br><span></span></a>
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav navbar-right">  
@@ -159,15 +159,11 @@
     </div>
 </section>    
      
-      <!--Footer-->
-      <footer id="footer" class="footer">
-        <div class="container text-center">
-      
-          ©2017 Caroline Guterres
-          
-        </div>
-      </footer>
-      <!--/ Footer-->
+     <!--Footer-->
+    <?php
+      include '../view/footer.html';
+     ?> 
+    <!--/ Footer-->
       
       <script src="js/jquery.min.js"></script>
       <script src="js/jquery.easing.min.js"></script>
