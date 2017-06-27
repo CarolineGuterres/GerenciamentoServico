@@ -21,60 +21,63 @@
     <?php
       include '../view/menuServico.html';
     ?> 
-                 <?php
+                   <?php
 
-                      session_start();
-                      $login = $_SESSION['login'];
-                      $senha = $_SESSION['senha'];
-                      $idUsuario = $_SESSION['idUsuario'];
-                      $endereco = $_SESSION['endereco'];
-                      $nomeUsuario = $_SESSION['nomeUsuario'];
+                        session_start();
+                        $login = $_SESSION['login'];
+                        $senha = $_SESSION['senha'];
+                        $idUsuario = $_SESSION['idUsuario'];
+                        $endereco = $_SESSION['endereco'];
+                        $nomeUsuario = $_SESSION['nomeUsuario'];
+
+                        $_SESSION['logado'] = true;
+                          if (isset($_SESSION['login']) and isset($_SESSION['senha'])){
+                            echo 'Seja Bem-Vindo ', $_SESSION['login'];
+                          }
 
 
-                      $_SESSION['logado'] = true;
-                        if (isset($_SESSION['login']) and isset($_SESSION['senha'])){
-                          echo 'Seja Bem-Vindo ', $_SESSION['login'];
-                        }
+                  ?>   
 
+            <span class="fa fa-chevron-down" aria-hidden="true"></span>                            
+                <ul style="background-color:white;" class="dropdown-menu">
+                          <li>
+                              <div class="navbar-login">
+                                  <div class="row">
+                                      <div class="col-lg-12 center">
+                                          <p class="text-center">
+                                              <a class="btn btn-primary btn-block btn-sm fa fa-edit" href=editarUsuario.php?idUsuario=<?php echo $_SESSION['idUsuario']; ?>>Atualizar Dados</a>
+                                          </p>
+                                      </div>
 
-                                   ?>   
-          <span class="fa fa-chevron-down" aria-hidden="true"></span>                            
-
-                    <ul style="background-color:white;" class="dropdown-menu">    
-                                
-                  <input type="hidden" name="idUsuario" value="<?php echo $rows['idUsuario'] ?>">
-
-                        <li>
-                            <div class="navbar-login navbar-login-session">
-                                <div class="row">
-                                    <div class="col-lg-12 center">
-                                        <p>
-                                            <a href='../view/logout.php' class="btn btn-primary btn-danger btn-block fa fa-close">Sair</a>
-
-                                        </p>
-                                    </div>
-                                </div>
+                                  </div>
+                          </li>
+                          <li class="divider"></li>
+                  <li>
+                     <div class="navbar-login navbar-login-session">
+                        <div class="row">
+                            <div class="col-lg-12 center">
+                                <p>
+                                  <a href='../view/sobreAreaFornecedor.php' class="btn btn-primary btn-block btn-info fa fa-check-square-o'">Sobre</a>
+                                </p>
                             </div>
-                        </li>
-            </a>
-                  
-
-                    </ul>
-                </li>
-                </div>
-                </li>
-          </ul>
-          </li>
-         </ul>
-          </div>
-        </div>
-        
-      </div>
-    </nav>
-    <!--/ Navigation bar-->
-   
-
-    <section id="work-shop" class="section-padding">
+                        </div>
+                    </div>
+                    <div class="navbar-login navbar-login-session">
+                        <div class="row">
+                            <div class="col-lg-12 center">
+                                <p>
+                                  <a href='../view/logout.php' class="btn btn-primary btn-danger btn-block fa fa-close">Sair</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                  </li>
+              </a>
+            </ul>
+         </div>     
+    </div>  <!--Fecha container-->
+ </nav>  <!--Fecha Menu navegacao-->
+<section id="work-shop" class="section-padding">
     <div class="container">
       <div class="row">
         <div class="col-md-12">
@@ -144,14 +147,6 @@
               </div>
             </div>
 
-            <!-- Text input-->
-            <div class="form-group">
-              <label class="col-md-4 control-label" for="data">Data</label>  
-              <div class="col-md-4">
-            <input type="text" id="calendario" name="data" class="form-control" />
-              </div>
-            </div>
-
            
             <!-- Button -->
             <div class="form-group">
@@ -180,24 +175,7 @@
 
    
     <!--/ Footer-->
-    
-    <script src="js/jquery.min.js"></script>
-    <script src="js/jquery.easing.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-     
-      <script>
-        $(function() {
-            $("#calendario").datepicker({
-                dateFormat: 'yy/mm/dd',
-                dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado','Domingo'],
-                dayNamesMin: ['D','S','T','Q','Q','S','S','D'],
-                dayNamesShort: ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb','Dom'],
-                monthNames: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
-                monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez']
-            });
-        });
-    </script> 
-      
+
 
      <script src='http://code.jquery.com/jquery-2.1.3.min.js'></script>
       <script src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js'></script>

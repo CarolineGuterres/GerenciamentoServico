@@ -24,7 +24,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="index.html">Solução<br><span></span></a>
+        <img src="../img/logo.png" width="220" >
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav navbar-right">  
@@ -53,47 +53,55 @@
                 </h1>
           </div>
         </div>
-      </div>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-           
-        </div>
-             <br>
-               
-               <center><select class="btn btn-default btn-xs dropdown-toggle" name="categoria" onchange="carregarservicos(this.value)">
+</div><!--Fecha container-->
+<br>
+<div class="search-text"> 
+  <div class="container">
+      <div class="row text-center">
+          <div class="form">
+                <i class="fa fa-search fa-2x" aria-hidden="true"></i>
+                     <select class="selectpicker" data-width="50%" name="categoria" onchange="carregarservicos(this.value)">
                   <option value = "NULL" name="idCategoria">Selecione categoria</option>
 
                     <?php
                       include_once "../model/Categoria.class.php";
 
-                              $obj = new Categoria;
+                        $obj = new Categoria;
+                        $resultado = $obj->mostrarCategorias();
 
-                      $resultado = $obj->mostrarCategorias();
-
-                      if($resultado){
-                        while($linha=mysqli_fetch_assoc($resultado)){
-                          $idCategoria=$linha['idCategoria'];
-                          $nomeCategoria=$linha['nomeCategoria'];
+                          if($resultado){
+                            while($linha=mysqli_fetch_assoc($resultado)){
+                              $idCategoria=$linha['idCategoria'];
+                              $nomeCategoria=$linha['nomeCategoria'];
                     ?>
-                      <option class="form-control" name="idCategoria" value="<?php echo $idCategoria; ?>"><?php echo $nomeCategoria; ?></option>
+                  <option class="form-control" name="idCategoria" value="<?php echo $idCategoria; ?>"><?php echo $nomeCategoria; ?></option>
                     <?php }
-                              }
-              ?>
+                           }
+                   ?>
 
 
-                  </select>
-                 </center>
-                       
+                </select>
+            </div>
+          </div>         
+       </div>     
+  </div>
+<div class="container">
+<div class="input-group">        
+        <div class="row">
+                         
+      </div>
+  <div class="row">    
+    <div class="col-md-12"> 
+        <br>
+            
         </div>
       </div>
     </div>
-
-    <section id="work-shop" class="section-padding">
-      <div class="container">
-        <div class="row">
-          <div class="header-section text-center">
-            <div id="servicosDisponiveis">
+  </section>  
+  <div class="container">
+    <div class="row">
+     <div class="header-section text-center">
+        <div id="servicosDisponiveis">
 
             <?php
 
@@ -103,37 +111,43 @@
               
               $resultado = $obj->mostrarServicos();
               
-              if($resultado){
-                while($linha=mysqli_fetch_assoc($resultado)){
-                  $nomeCategoria=$linha['nomeCategoria'];
-                  $descricao=$linha['descricao'];
-                  
+                if($resultado){
+                  while($linha=mysqli_fetch_assoc($resultado)){
+                    $nomeCategoria=$linha['nomeCategoria'];
+                    $descricao=$linha['descricao'];
+                    
+                      echo "<div class='jumbotron'><table class='table'><thead> <tr>";
+                      echo "<th><h4><i class='fa fa-tag' aria-hidden='true'>Categoria: " .$nomeCategoria."</h4></th>"; 
+                      echo "<th><h4><i class='fa fa-book' aria-hidden='true'>Descrição: " .$descricao."</h4></th>";
+                      echo"</tr></thead></table>";
+                      echo "</div> ";
                  
-                  echo "<div class='jumbotron'><table class='table'><thead> <tr>";
-                  echo "<th><h4><i class='fa fa-tag' aria-hidden='true'>Categoria: " .$nomeCategoria."</h4></th>"; 
-                  echo "<th><h4><i class='fa fa-book' aria-hidden='true'>Descrição: " .$descricao."</h4></th>";
-                  echo"</tr></thead></table>";
-                  echo "</div> ";
-             
-                 echo "<br><br>";
-                  
+                     echo "<br><br>";
+                      
+                  }
                 }
-              }
-              ?>
+            ?>
               
         </div>
-        </div>
       </div>
-      </div>
-    </section>
-    <!--/ work-shop-->
-   
+    </div>
+  </div>
+     <!--/ work-shop-->
+       <section id="work-shop" class="section-padding">
+       </section>
+      <section id="work-shop" class="section-padding">
+      </section>
+       <section id="work-shop" class="section-padding">
+      </section>
+ 
     <!--Footer-->
     <?php
       include '../view/footer.html';
      ?> 
     <!--/ Footer-->
-    <script src='../js/jquery-1.11.2.min.js'></script>
+    
+  </body>
+  <script src='../js/jquery-1.11.2.min.js'></script>
 
     <script type="text/javascript">
       function chamar(){
@@ -156,5 +170,4 @@
         }
       } 
     </script>    
-  </body>
 </html>

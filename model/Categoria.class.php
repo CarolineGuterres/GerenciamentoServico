@@ -5,7 +5,6 @@
 		class Categoria{
 			public $idCategoria;
 			public $nomeCategoria;
-			
 		
 			//mostrar dados do usaurio para alterar
 				function mostrarCategorias(){
@@ -19,15 +18,14 @@
 					$bd->fechar();
 				}
 
-				//mostrar dados do usaurio para alterar
+				//buscar categorias
 				function buscarCategoria(){
 					$bd = new ConexaoBD;
 					$bd->conectar();
 					return $bd->query("SELECT * FROM categoria ");
 					$bd->fechar();
 				}
-
-				
+			
 		}
 				
 ?>

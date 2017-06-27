@@ -1,16 +1,4 @@
-<html>
-   <head>
-			<meta charset="utf-8">
-			<meta name="viewport" content="width=device-width, initial-scale=1">
-			<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-			<script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-			<link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-			<link href="http://pingendo.github.io/pingendo-bootstrap/themes/default/bootstrap.css" rel="stylesheet" type="text/css">
-		</head>
-
-		<body>
-			<div>
-				<?php
+<?php
 				 
 				   include '../model/InteresseServico.class.php';
 					$operacao = $_POST["operacao"];
@@ -18,20 +6,28 @@
 					if($operacao=="interesse"){
 						$idUsuario=$_POST["idUsuario"];
 						$idServico=$_POST["idServico"];
-						
-
+					
 						$obj = new Interesse_Serv;
-
-
 						$obj->inserir($idUsuario,$idServico);
-						
 						$_SESSION['mensagem']='Seu interesse foi cadastrado';
 						$_SESSION['local']='../view/areaCliente.php';
-						
 						echo "<meta http-equiv='refresh' content='0;url=../js/jquerymodal.php?numero=1'>";
+					}elseif($operacao == "CANCELAR INTERESSE"){
+						$idServico = $_POST["idServico"];
+						echo "<meta http-equiv='refresh'content='0;url=../js/jquerymodalInteresse.php?numero=2&codigo=$idServico'>";
+						
+					//caso escolher 'sim' para excluir
+					}elseif ($operacao == "Sim"){
+						$codigo = $_POST["codigo"];
+						$obj = new Interesse_Serv;
+						$obj->excluirInteresse($codigo);
+						
+						$_SESSION['mensagem']='Interesse excluído com sucesso';
+						$_SESSION['local']='../view/interesseServicos.php';
+						
+						echo "<meta http-equiv='refresh' 
+						content='0;url=../js/jquerymodalInteresse.php?numero=1'>";
+
 					}
-				?>
+?>
 
-	</body>
-
-</html>

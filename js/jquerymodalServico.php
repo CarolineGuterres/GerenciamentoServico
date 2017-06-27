@@ -14,9 +14,7 @@
 			   
 			   session_start();
 			   if($numero == 1){
-				   
-			  
-		   
+				    
 		   ?>
 					   <!-- Modal -->
 

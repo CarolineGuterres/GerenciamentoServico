@@ -13,8 +13,7 @@
 			public $endereco;
 			public $tipo;
 
-
-			//mostrar dados do usuaio para logar
+			//mostrar dados do usuario para logar
 				 function buscaUser($login, $senha) {
                       //echo $login;
 					$bd = new ConexaoBD();
@@ -23,7 +22,7 @@
 					return $bd->query($sql);
 					$bd->fechar();
                 }
-				//mostrar dados do aluno para alterar
+				//mostrar dados do usuario para alterar
 				function mostrarUsuario($idUsuario){
 					$bd = new ConexaoBD;
 					$bd->conectar();
@@ -31,7 +30,7 @@
 					$bd->fechar();
 				}
 
-				//mostrar dados do aluno para alterar
+				//consultar tipo
 				function consultarTipo($idUsuario){
 					$bd = new ConexaoBD;
 					$bd->conectar();
