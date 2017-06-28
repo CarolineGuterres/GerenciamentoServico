@@ -12,7 +12,9 @@
 		    <link rel="stylesheet" type="text/css" href="../css/style.css">
 		    <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css" />
 		    <script src='http://code.jquery.com/jquery-2.1.3.min.js'></script>
+		    <script src='../js/jquery-2.1.3.min.js'></script>
 		    <script src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js'></script>
+		     <script src='../js/bootstrap.min.js'></script>
 		    <script>
 			  $(function () {
 			    $('.dropdown-toggle').dropdown();
@@ -153,7 +155,7 @@
 		            <div class="form-group">
 		              <label class="col-md-4 control-label" for="descricao">Descrição</label>  
 		              <div class="col-md-4">
-		                <textarea class="form-control" name="descricao" rows="5" cols="5"></textarea>  
+		                <textarea class="form-control" name="descricao" rows="5" cols="5" required></textarea>  
 		              </div>
 		            </div>
 
@@ -161,7 +163,7 @@
 		            <div class="form-group">
 		              <label class="col-md-4 control-label" for="valor">Valor</label>
 			              <div class="col-md-4">
-			                <input type="number" step="0.01" class="form-control" id="valor" name="valor"  onkeyup="valida_numero(this)" placeholder="00.00">
+			                <input type="number" step="0.01" class="form-control" id="valor" name="valor"  onkeyup="valida_numero(this)" placeholder="00.00" required>
 			              </div>
 		            </div>
 
