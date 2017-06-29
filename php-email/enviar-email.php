@@ -5,7 +5,7 @@
 $border_color   = "#791679";
 $project_name   = "Caroline";
 $project_email  = "site@email.com";
-$suport_email   = "carolguterres.silva@gmail.com";
+$suport_email   = "seuemail@examplo.com";
 
 
 if(isset($_GET['email'])){
@@ -97,8 +97,8 @@ if(isset($_GET['email'])){
     ob_end_clean();
     include_once "swift/swift_required.php";
     $transport = Swift_SmtpTransport::newInstance('smtp.gmail.com', 465, 'ssl');
-    $transport->setUsername('carolguterres.silva@gmail.com');
-    $transport->setPassword('100206caroline');
+    $transport->setUsername('');
+    $transport->setPassword('');
     $swift = Swift_Mailer::newInstance($transport);
     $message = new Swift_Message("Avaliação servico"." <".$user_email.">");
     $message->setFrom( array($project_email) );
